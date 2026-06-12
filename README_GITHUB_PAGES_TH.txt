@@ -1,16 +1,24 @@
-SMART STOCK PWA WRAPPER สำหรับ GitHub Pages
+SMART STOCK PWA WRAPPER — รุ่นฝัง URL GAS พร้อมใช้
 
-วิธีใช้
-1. อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ไปยัง root ของ GitHub repo
-2. เปิด GitHub Pages
-3. เข้า URL github.io ของ repo
-4. กด ตั้งค่า URL และวาง GAS Web App URL ที่ลงท้าย /exec
-5. กด ติดตั้งแอป เมื่อปุ่มปรากฏ หรือใช้เมนู Install app ใน Chrome / Edge
+URL GAS ที่ฝังไว้แล้ว:
+https://script.google.com/macros/s/AKfycbzeSzHwA6Jju08CDLUYxOK-fSACwD9UjWCDAXxbJh9ZeisK-BVxX4m32wOBkVlzowMX5w/exec
 
-ทางเลือก
-- สามารถใส่ URL ถาวรใน config.js ที่ GAS_WEB_APP_URL ได้
-- หน้า Wrapper จำ URL ด้วย localStorage แยกตามเครื่อง
+วิธีนำขึ้น GitHub Pages
+1. แตก ZIP
+2. อัปโหลดไฟล์และโฟลเดอร์ทั้งหมดไปไว้ที่ root ของ GitHub repository
+3. เข้า Settings → Pages
+4. เลือก Deploy from a branch
+5. เลือก Branch: main และ Folder: /root
+6. เปิด URL github.io ของ repository
+7. ระบบจะเปิด GAS Web App ทันที โดยไม่ต้องกรอก URL
+
+ติดตั้งลงคอมพิวเตอร์
+- เปิด GitHub Pages URL ผ่าน Chrome หรือ Edge
+- กด “ติดตั้งแอป” เมื่อปุ่มปรากฏ
+- หากปุ่มไม่ปรากฏ ใช้เมนู browser → Install app
 
 ข้อควรทราบ
-- PWA Shell เปิดแบบติดตั้งได้ แต่ข้อมูล GAS และ Google Sheet ยังต้องต่ออินเทอร์เน็ต
-- GAS Code.gs ต้องใช้ .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL) ตามไฟล์รุ่น V3.4 มิฉะนั้น iframe อาจว่าง
+- PWA Shell ติดตั้งลงเครื่องได้ แต่ GAS และ Google Sheet ยังต้องใช้อินเทอร์เน็ต
+- หาก iframe ว่าง ให้กด “เปิด GAS โดยตรง”
+- GAS Code.gs ต้องใช้ .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
+- หาก Deploy GAS ใหม่แล้ว URL เปลี่ยน ให้แก้ค่า GAS_WEB_APP_URL ใน config.js เพียงจุดเดียว แล้วอัปโหลด config.js ใหม่
