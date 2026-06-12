@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smart-stock-pwa-fixed-url-v2';
+const CACHE_NAME = 'smart-stock-pwa-no-header-v1';
 const APP_SHELL = [
   './',
   './index.html',

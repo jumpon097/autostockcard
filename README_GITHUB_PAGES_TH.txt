@@ -1,7 +1,17 @@
-SMART STOCK PWA WRAPPER — รุ่นฝัง URL GAS พร้อมใช้
+SMART STOCK PWA WRAPPER — NO HEADER
 
-URL GAS ที่ฝังไว้แล้ว:
+รุ่นนี้ฝัง URL GAS ไว้แล้ว และไม่มี Header ด้านบน
+เปิด GitHub Pages แล้วจะแสดงหน้า GAS เต็มจอทันที
+
+URL GAS ที่ฝังไว้:
 https://script.google.com/macros/s/AKfycbzeSzHwA6Jju08CDLUYxOK-fSACwD9UjWCDAXxbJh9ZeisK-BVxX4m32wOBkVlzowMX5w/exec
+
+ปุ่มลอยมุมขวาล่าง
+- ⬇ ติดตั้งแอป: ปรากฏเมื่อ Browser รองรับและพร้อมติดตั้ง
+- ↻ รีโหลดหน้า GAS
+- ↗ เปิด GAS โดยตรงในแท็บใหม่
+
+ปุ่มลอยจะแสดงจาง ๆ และชัดขึ้นเมื่อชี้เมาส์ เพื่อไม่รบกวนหน้าทำงาน
 
 วิธีนำขึ้น GitHub Pages
 1. แตก ZIP
@@ -10,15 +20,8 @@ https://script.google.com/macros/s/AKfycbzeSzHwA6Jju08CDLUYxOK-fSACwD9UjWCDAXxbJ
 4. เลือก Deploy from a branch
 5. เลือก Branch: main และ Folder: /root
 6. เปิด URL github.io ของ repository
-7. ระบบจะเปิด GAS Web App ทันที โดยไม่ต้องกรอก URL
-
-ติดตั้งลงคอมพิวเตอร์
-- เปิด GitHub Pages URL ผ่าน Chrome หรือ Edge
-- กด “ติดตั้งแอป” เมื่อปุ่มปรากฏ
-- หากปุ่มไม่ปรากฏ ใช้เมนู browser → Install app
+7. หากเคยใช้ PWA รุ่นเก่า ให้กด Ctrl + F5 หนึ่งครั้ง หรือปิดและเปิดแอปใหม่
 
 ข้อควรทราบ
 - PWA Shell ติดตั้งลงเครื่องได้ แต่ GAS และ Google Sheet ยังต้องใช้อินเทอร์เน็ต
-- หาก iframe ว่าง ให้กด “เปิด GAS โดยตรง”
 - GAS Code.gs ต้องใช้ .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)
-- หาก Deploy GAS ใหม่แล้ว URL เปลี่ยน ให้แก้ค่า GAS_WEB_APP_URL ใน config.js เพียงจุดเดียว แล้วอัปโหลด config.js ใหม่

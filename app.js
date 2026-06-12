@@ -3,11 +3,10 @@
 
   const cfg = window.SMART_STOCK_CONFIG || {};
   const frame = document.getElementById('gas-frame');
-  const statusbar = document.getElementById('statusbar');
+  const statusPill = document.getElementById('status-pill');
   const installBtn = document.getElementById('install-btn');
   let deferredInstallPrompt = null;
-
-  document.getElementById('app-title').textContent = cfg.APP_NAME || 'Smart Stock Card';
+  let statusTimer = null;
 
   function normalizeUrl(value) {
     const text = String(value || '').trim();
@@ -21,9 +20,14 @@
     }
   }
 
-  function setStatus(message, offline = false) {
-    statusbar.textContent = message;
-    statusbar.classList.toggle('offline', Boolean(offline));
+  function setStatus(message, offline = false, autoHide = false) {
+    clearTimeout(statusTimer);
+    statusPill.textContent = message;
+    statusPill.classList.toggle('offline', Boolean(offline));
+    statusPill.classList.remove('fade');
+    if (autoHide) {
+      statusTimer = setTimeout(() => statusPill.classList.add('fade'), 2200);
+    }
   }
 
   function getGasUrl() {
@@ -33,7 +37,7 @@
   function loadGasApp() {
     try {
       const url = getGasUrl();
-      setStatus('กำลังเปิด Smart Stock จาก GAS...');
+      setStatus('กำลังเปิด Smart Stock...');
       frame.src = url;
     } catch (error) {
       setStatus(error.message, true);
@@ -43,8 +47,8 @@
 
   frame.addEventListener('load', () => {
     setStatus(navigator.onLine
-      ? 'Smart Stock พร้อมใช้งาน · หากกรอบว่าง ให้กด “เปิด GAS โดยตรง”'
-      : 'ออฟไลน์ · PWA เปิดได้ แต่ GAS และ Google Sheet ต้องใช้อินเทอร์เน็ต', !navigator.onLine);
+      ? 'Smart Stock พร้อมใช้งาน'
+      : 'ออฟไลน์ · GAS และ Google Sheet ต้องใช้อินเทอร์เน็ต', !navigator.onLine, navigator.onLine);
   });
 
   document.getElementById('reload-btn').addEventListener('click', () => {
@@ -65,7 +69,7 @@
     loadGasApp();
   });
   window.addEventListener('offline', () => {
-    setStatus('ออฟไลน์ · PWA เปิดได้ แต่ GAS และ Google Sheet ต้องใช้อินเทอร์เน็ต', true);
+    setStatus('ออฟไลน์ · GAS และ Google Sheet ต้องใช้อินเทอร์เน็ต', true);
   });
 
   window.addEventListener('beforeinstallprompt', event => {

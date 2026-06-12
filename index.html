@@ -12,26 +12,17 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-icon">▦</div>
-      <div>
-        <h1 id="app-title">Smart Stock Card</h1>
-        <p>ระบบใบคุมคลังยา · PWA</p>
-      </div>
-    </div>
-    <div class="actions">
-      <button id="install-btn" class="button primary hidden" type="button">ติดตั้งแอป</button>
-      <button id="reload-btn" class="button" type="button">รีโหลด</button>
-      <button id="open-direct-btn" class="button" type="button">เปิด GAS โดยตรง</button>
-    </div>
-  </header>
-
-  <div id="statusbar" class="statusbar">กำลังเปิด Smart Stock...</div>
-
   <main class="workspace">
     <iframe id="gas-frame" title="Smart Stock GAS Web App" allow="clipboard-read; clipboard-write" referrerpolicy="no-referrer"></iframe>
   </main>
+
+  <div id="status-pill" class="status-pill">กำลังเปิดระบบ...</div>
+
+  <div class="floating-tools" aria-label="เครื่องมือ PWA">
+    <button id="install-btn" class="tool-button hidden" type="button" title="ติดตั้งแอป" aria-label="ติดตั้งแอป">⬇</button>
+    <button id="reload-btn" class="tool-button" type="button" title="รีโหลด" aria-label="รีโหลด">↻</button>
+    <button id="open-direct-btn" class="tool-button" type="button" title="เปิด GAS โดยตรง" aria-label="เปิด GAS โดยตรง">↗</button>
+  </div>
 
   <script src="./config.js"></script>
   <script src="./app.js"></script>

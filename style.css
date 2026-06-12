@@ -1,19 +1,15 @@
-:root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #0f172a; background: #f8fafc; }
+:root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #0f172a; background: #ffffff; }
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
-body { display: flex; flex-direction: column; min-height: 100vh; }
-.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: #0f766e; color: white; box-shadow: 0 2px 8px rgba(15, 23, 42, .18); }
-.brand { display: flex; align-items: center; gap: 10px; min-width: 210px; }
-.brand-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: rgba(255,255,255,.2); font-size: 25px; font-weight: 800; }
-h1 { margin: 0; font-size: 18px; line-height: 1.1; }
-.brand p { margin: 3px 0 0; font-size: 11px; opacity: .85; }
-.actions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
-.button { appearance: none; border: 1px solid rgba(255,255,255,.45); border-radius: 8px; background: white; color: #0f766e; padding: 8px 11px; font-weight: 700; cursor: pointer; }
-.button:hover { filter: brightness(.96); }
-.button.primary { background: #134e4a; color: white; border-color: #134e4a; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { min-height: 100vh; background: #ffffff; }
+.workspace { width: 100%; height: 100%; min-height: 0; background: #ffffff; }
+iframe { display: block; width: 100%; height: 100%; border: 0; background: #ffffff; }
 .hidden { display: none !important; }
-.statusbar { padding: 6px 12px; border-bottom: 1px solid #cbd5e1; background: #ecfeff; color: #155e75; font-size: 12px; }
-.statusbar.offline { background: #fff7ed; color: #9a3412; }
-.workspace { flex: 1; min-height: 0; position: relative; background: #e2e8f0; }
-iframe { display: block; width: 100%; height: 100%; border: 0; background: white; }
-@media (max-width: 760px) { .topbar { align-items: flex-start; flex-direction: column; } .actions { justify-content: flex-start; } .button { padding: 7px 9px; font-size: 12px; } }
+.floating-tools { position: fixed; right: 10px; bottom: 10px; z-index: 9999; display: flex; gap: 6px; opacity: .28; transition: opacity .2s ease; }
+.floating-tools:hover, .floating-tools:focus-within { opacity: 1; }
+.tool-button { width: 34px; height: 34px; padding: 0; border: 1px solid rgba(15,118,110,.35); border-radius: 999px; background: rgba(255,255,255,.88); color: #0f766e; box-shadow: 0 2px 8px rgba(15,23,42,.16); cursor: pointer; font-size: 18px; font-weight: 800; line-height: 1; backdrop-filter: blur(4px); }
+.tool-button:hover { background: #ffffff; transform: translateY(-1px); }
+.status-pill { position: fixed; left: 50%; bottom: 12px; z-index: 9998; transform: translateX(-50%); max-width: min(86vw, 620px); padding: 6px 11px; border-radius: 999px; background: rgba(15,118,110,.88); color: #ffffff; font-size: 12px; box-shadow: 0 2px 8px rgba(15,23,42,.18); transition: opacity .35s ease; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.status-pill.offline { background: rgba(154,52,18,.92); }
+.status-pill.fade { opacity: 0; }
+@media (max-width: 640px) { .floating-tools { right: 6px; bottom: 6px; gap: 4px; } .tool-button { width: 31px; height: 31px; font-size: 16px; } .status-pill { bottom: 8px; max-width: 74vw; font-size: 11px; } }
